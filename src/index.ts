@@ -129,6 +129,69 @@ function calcularFaturamento(consultas: Consulta[]): number {
     .reduce((total, consulta) => total + consulta.valor, 0);
 }
 
+const consultas: Consulta[] = [];
+
+const consulta1 = criarConsulta(
+  1,
+  medico1,
+  paciente1,
+  new Date(),
+  350
+);
+consultas.push(consulta1)
+const consulta2 = criarConsulta(
+  2,
+  medico2,
+  paciente2,
+  new Date(),
+  330
+);
+consultas.push(consulta2)
+const consulta3 = criarConsulta(
+  3,
+  medico3,
+  paciente3,
+  new Date(),
+  220
+);
+consultas.push(consulta3)
+const consulta4 = criarConsulta(
+  4,
+  medico1,
+  paciente3,
+  new Date(),
+  440
+);
+consultas.push(consulta4)
+const consulta5 = criarConsulta(
+  5,
+  medico3,
+  paciente2,
+  new Date(),
+  50
+);
+consultas.push(consulta5)
+const consulta6 = criarConsulta(
+  6,
+  medico3,
+  paciente1,
+  new Date(),
+  150
+);
+consultas.push(consulta6)
+const consultaConfirmada = confirmarConsulta(consulta1);
+console.log("=== CONSULTA CONFIRMADA ===");
+console.log(exibirConsulta(consultaConfirmada));
+
+console.log("=== Listar Consultas Futuras ===");
+console.log(listarConsultasFuturas(consultas))
+
+console.log("=== Listar Consultas Realizadas ===");
+console.log(listarConsultasPorStatus(consultas, "realizada"))
+
+console.log("=== Calcular Faturamento ===");
+console.log(calcularFaturamento(consultas))
+
 
 
 
